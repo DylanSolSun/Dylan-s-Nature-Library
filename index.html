@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dylan's Nature Library - Bird of Paradise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('background.png') center center fixed no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1b4d3e 0%, #0d2b1f 100%);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid #ff6b35;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff6b35;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff6b35;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-btn {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #ff6b35;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ffffff;
+            opacity: 0.9;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+
+        .profiles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #1b4d3e;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b35 0%, #0066cc 50%, #764ba2 100%);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .profile-role {
+            text-align: center;
+            color: #ff6b35;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .profile-bio {
+            color: #666;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .add-profile-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-top: 2rem;
+            background: linear-gradient(135deg, #ff6b35 0%, #0066cc 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .add-profile-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #ff6b35;
+            background: rgba(27, 77, 62, 0.9);
+            opacity: 0.95;
+        }
+
+
+
+        .gallery-section {
+            margin-bottom: 3rem;
+        }
+
+        .gallery-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #1b4d3e;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, #ff6b35 0%, #0066cc 50%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .gallery-caption {
+            padding: 1rem;
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            color: #1b4d3e;
+            font-weight: 500;
+        }
+
+        /* Entry Screen Styles */
+        .entry-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1b4d3e 0%, #0d2b1f 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: opacity 1s ease, transform 1s ease;
+            padding: 2rem;
+        }
+
+        .entry-screen.hidden {
+            opacity: 0;
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+
+        .entry-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .entry-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            letter-spacing: 3px;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .entry-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: white;
+            font-style: italic;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .entry-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1200px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .flower-display {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: url('flower1.png') center center no-repeat;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            border: 4px solid #ff6b35;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.5s forwards;
+            flex-shrink: 0;
+        }
+
+        /* Speech Bubble Styles */
+        .speech-bubble-container {
+            flex: 1;
+            max-width: 700px;
+            position: relative;
+        }
+
+        .speech-bubble {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 25px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+            border: 3px solid #ff6b35;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1001;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .speech-bubble.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .speech-bubble.exit {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        .speech-bubble::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -15px;
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-right: 15px solid #ff6b35;
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            top: 23px;
+            left: -10px;
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-right: 12px solid rgba(255, 255, 255, 0.98);
+        }
+
+        .speech-bubble-text {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.15rem;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .speaker-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: #ff6b35;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .continue-hint {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid rgba(255, 107, 53, 0.2);
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+            animation: blink 1.5s infinite;
+            text-align: center;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .progress-dots {
+            display: flex;
+            gap: 8px;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        .progress-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .progress-dot.active {
+            background: #ff6b35;
+            transform: scale(1.3);
+        }
+
+        .progress-dot.completed {
+            background: rgba(255, 107, 53, 0.5);
+        }
+
+        .dev-mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(27, 77, 62, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.9rem;
+            z-index: 10000;
+            border: 2px solid #ff6b35;
+            transition: all 0.3s;
+        }
+
+        .dev-mode-toggle:hover {
+            background: rgba(255, 107, 53, 0.9);
+        }
+
+        .dev-mode-toggle.active {
+            background: #ff6b35;
+        }
+
+        /* Detailed Content Styles */
+        .detailed-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 2px solid #1b4d3e;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .detailed-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .detailed-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: #1b4d3e;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            border-bottom: 3px solid #ff6b35;
+            padding-bottom: 0.5rem;
+        }
+
+        .detailed-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: #ff6b35;
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
+        }
+
+        .detailed-section p {
+            line-height: 1.9;
+            color: #555;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+
+        .detailed-section ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .detailed-section li {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .flower-image {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 15px;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 3px solid #1b4d3e;
+        }
+
+        .symbolism-box {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(0, 102, 204, 0.1) 100%);
+            border-left: 5px solid #ff6b35;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .symbolism-box p {
+            font-style: italic;
+            color: #333;
+        }
+
+        .main-content {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .main-content.visible {
+            opacity: 1;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 3px solid #ff6b35;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1);
+        }
+
+        .modal h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: #ff6b35;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .modal p {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .modal-close {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-top: 2rem;
+            background: #ff6b35;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .modal-close:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Dev Mode Toggle -->
+    <div class="dev-mode-toggle" id="devModeToggle">Skip Intro (Dev Mode)</div>
+
+    <!-- About Modal -->
+    <div class="modal-overlay" id="aboutModal">
+        <div class="modal">
+            <h2>About This Website</h2>
+            <p>This website is made by Dylan as a tribute to nature itself.</p>
+            <p>It's currently under development as part of Dylan's practices for HTML programming. At the same time, it's an opportunity to experiment with web design while expressing a deep love and appreciation for the natural world.</p>
+            <p>The Bird of Paradise flower was chosen as the focal point because of its beauty, symbolism, and the fascinating stories behind it. This project combines technical learning with creative exploration of nature's wonders.</p>
+            <button class="modal-close" id="closeModal">Close</button>
+        </div>
+    </div>
+
+    <!-- Entry Screen -->
+    <div class="entry-screen" id="entryScreen">
+        <div class="entry-header">
+            <h1 class="entry-title">Bird of Paradise</h1>
+            <p class="entry-subtitle">Strelitzia reginae</p>
+        </div>
+
+        <div class="entry-content">
+            <div class="flower-display"></div>
+
+            <div class="speech-bubble-container">
+                <div class="speech-bubble active" id="bubble1">
+                    <div class="speaker-name">Dylan Nama</div>
+                    <div class="speech-bubble-text">Hello! I'm Dylan Nama, a student who created this website to share my passion for nature. Welcome to my digital nature library, where I explore the amazing world of plants and their stories. Please press spacebar to begin the tour.</div>
+                    <div class="continue-hint">Press SPACEBAR to continue...</div>
+                </div>
+
+                <div class="speech-bubble" id="bubble2">
+                    <div class="speaker-name">Dylan Nama</div>
+                    <div class="speech-bubble-text">This website focuses on the Bird of Paradise flower, also known as Strelitzia reginae. It's a stunning tropical plant native to South Africa. I've researched its symbolism, scientific background, global importance, and interesting stories to share with you.</div>
+                    <div class="continue-hint">Press SPACEBAR to continue...</div>
+                </div>
+
+                <div class="speech-bubble" id="bubble3">
+                    <div class="speaker-name">Dylan Nama</div>
+                    <div class="speech-bubble-text">The Bird of Paradise has beautiful symbolism. Its orange and blue petals look like a bird in flight, representing freedom and the desire to reach beyond limits. It's about being unique and celebrating who you are. Even though it looks ready to fly, it has strong roots deep in the ground—teaching us that we need both freedom and stability.</div>
+                    <div class="continue-hint">Press SPACEBAR to continue...</div>
+                </div>
+
+                <div class="speech-bubble" id="bubble4">
+                    <div class="speaker-name">Dylan Nama</div>
+                    <div class="speech-bubble-text">This flower really resonates with me as a student. It represents the journey of growth and learning—starting from humble beginnings and working hard to achieve your goals. Like the flower, I believe in staying true to myself while reaching for new heights. It's about resilience and the courage to keep going, no matter the challenges.</div>
+                    <div class="continue-hint">Press SPACEBAR to continue...</div>
+                </div>
+
+                <div class="speech-bubble" id="bubble5">
+                    <div class="speaker-name">Dylan Nama</div>
+                    <div class="speech-bubble-text">Scientifically, the flower has an interesting history. It was named Strelitzia in 1773 by botanist Sir Joseph Banks to honor Queen Charlotte of Great Britain. The species name reginae means "of the queen" in Latin. I found it fascinating how science and history connect through this beautiful plant.</div>
+                    <div class="continue-hint">Press SPACEBAR to continue...</div>
+                </div>
+
+                <div class="speech-bubble" id="bubble6">
+                    <div class="speaker-name">Dylan Nama</div>
+                    <div class="speech-bubble-text">The Bird of Paradise is important in many countries. In South Africa, it's called the "Crane Flower" and appears on their currency. In the UK, it was popular in royal gardens. In the US, it's the official flower of Los Angeles. It's amazing how one plant can mean so much to different cultures around the world.</div>
+                    <div class="continue-hint">Press SPACEBAR to continue...</div>
+                </div>
+
+                <div class="speech-bubble" id="bubble7">
+                    <div class="speaker-name">Dylan Nama</div>
+                    <div class="speech-bubble-text">There are some incredible stories too. Explorers once thought Birds of Paradise were legless heavenly creatures because traders removed their feet. When this flower was discovered, it reminded people of those legendary birds. Also, in nature, the flower works with Sunbirds—the bird's weight opens the flower to spread pollen. It's a perfect example of how nature works together. Thanks for exploring my nature project!</div>
+                    <div class="continue-hint">Press ENTER to enter the library...</div>
+                </div>
+
+                <div class="progress-dots" id="progressDots">
+                    <div class="progress-dot active"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+    <header>
+        <nav>
+            <div class="logo">Dylan's Nature Library</div>
+            <div class="nav-links">
+                <a href="#symbolism">Symbolism</a>
+                <a href="#origins">Origins</a>
+                <a href="#countries">Countries</a>
+                <a href="#stories">Stories</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-btn">Learn More</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <h1>Dylan's Nature Library</h1>
+            <p>A Student's Tribute to the Wonders of Nature</p>
+        </div>
+
+        <div class="gallery-section">
+            <h2>Photo Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="flower1.png" alt="Bird of Paradise" class="flower-image" style="height: 200px; object-fit: cover; margin: 0;">
+                    <div class="gallery-caption">Vibrant Display</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="flower2.jpg" alt="Bird of Paradise" class="flower-image" style="height: 200px; object-fit: cover; margin: 0;">
+                    <div class="gallery-caption">Natural Beauty</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="flower3.jpg" alt="Bird of Paradise" class="flower-image" style="height: 200px; object-fit: cover; margin: 0;">
+                    <div class="gallery-caption">Perfect Bloom</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detailed-section" id="symbolism">
+            <h2>The Symbolism of the Bird of Paradise</h2>
+            <img src="flower1.png" alt="Bird of Paradise Flower" class="flower-image">
+
+            <p>The Bird of Paradise carries powerful archetypal and emotional symbolism due to its striking appearance. Because its brilliant orange sepals and deep-blue petals closely resemble wings captured mid-flight, it represents the ultimate desire for freedom, transcendence, and soaring beyond earthly limits. It is a bold, unmistakable flower that stands as a symbol of extravagance, uniqueness, and celebrating your true individual identity. Paradoxically, while looking like an avian creature ready to fly away, its root system is incredibly deep and sturdy. This gives the flower a dual meaning of grounded optimism, demonstrating that true freedom requires strong roots.</p>
+
+            <div class="symbolism-box">
+                <p><strong>Why the Bird of Paradise Symbolizes Dylan:</strong> The Bird of Paradise serves as a profound personal symbol for Dylan, perfectly capturing an unyielding desire for freedom and an intense drive for success. Just like the exotic blossom mimics a tropical bird breaking free from its cage to soar into the open sky, Dylan embodies a spirit of absolute independence and unshackled liberation—refusing to be confined by limits or societal expectations. The flower's bold, unforgettable shape does not ask for permission to be vibrant; it simply commands attention by existing naturally, mirroring Dylan's unapologetic pursuit of greatness. Its deep, strong root system provides the ultimate foundation for this ambition, proving that true success requires being firmly grounded while having the courage to stretch outward and conquer new heights.</p>
+            </div>
+
+            <h3>Freedom and Transcendence</h3>
+            <p>The flower's wing-like petals symbolize the soul's journey toward spiritual enlightenment and the pursuit of one's dreams. It represents breaking free from limitations and embracing the freedom to be oneself.</p>
+
+            <h3>Individuality and Uniqueness</h3>
+            <p>Standing out with its distinctive appearance, the Bird of Paradise celebrates individuality and the courage to be different. It reminds us that our unique qualities are what make us beautiful and extraordinary.</p>
+
+            <h3>Grounded Optimism</h3>
+            <p>The paradox of its appearance—wings ready to fly, yet deeply rooted—teaches us that true freedom requires a strong foundation. We can soar to great heights while remaining grounded in our values and principles.</p>
+        </div>
+
+        <div class="detailed-section" id="origins">
+            <h2>The Scientific Origins and Naming of the Flower</h2>
+            <img src="flower2.jpg" alt="Bird of Paradise in Nature" class="flower-image">
+
+            <p>The scientific categorization of the Bird of Paradise reflects a mix of eighteenth-century European royalty and precise structural traits. Belonging to the family Strelitziaceae, a small family of monocotyledonous flowering plants closely related to banana plants, its primary and most celebrated species is officially named Strelitzia reginae. The genus was designated in 1773 by the British botanist Sir Joseph Banks to honor Queen Charlotte of Great Britain, who was born a Duchess of Mecklenburg-Strelitz. Meanwhile, the species name reginae translates directly from Latin to mean "of the queen," doubling down on its royal namesake and reflecting the majestic appearance of the plant.</p>
+
+            <h3>Botanical Classification</h3>
+            <p><strong>Family:</strong> Strelitziaceae</p>
+            <p><strong>Genus:</strong> Strelitzia</p>
+            <p><strong>Species:</strong> Strelitzia reginae</p>
+            <p><strong>Common Names:</strong> Bird of Paradise, Crane Flower, Strelitzia</p>
+
+            <h3>Taxonomic Classification</h3>
+            <ul>
+                <li><strong>Kingdom:</strong> Plantae</li>
+                <li><strong>Clade:</strong> Tracheophytes (vascular plants)</li>
+                <li><strong>Clade:</strong> Angiosperms (flowering plants)</li>
+                <li><strong>Clade:</strong> Monocots</li>
+                <li><strong>Order:</strong> Zingiberales</li>
+                <li><strong>Family:</strong> Strelitziaceae</li>
+            </ul>
+
+            <h3>Related Species</h3>
+            <p>The Strelitzia genus includes five species, with <em>Strelitzia reginae</em> being the most well-known. Other species include <em>Strelitzia nicolai</em> (White Bird of Paradise), <em>Strelitzia juncea</em> (Reed-leaved Strelitzia), and <em>Strelitzia caudata</em> (Mountain Strelitzia).</p>
+        </div>
+
+        <div class="detailed-section" id="countries">
+            <h2>Global Significance across Countries</h2>
+            <img src="flower3.jpg" alt="Bird of Paradise Habitat" class="flower-image">
+
+            <p>The Bird of Paradise holds deep cultural value across several major nations, starting with its native homeland of South Africa. Growing wild along the coastal bush and riverbanks of the Eastern Cape, it is known locally as the "Crane Flower" and is deeply woven into South African culture to symbolize nobility and freedom, even being featured on the country's fifty-cent coin. In 1773, the plant was introduced to the United Kingdom by botanist Francis Masson, where it quickly became a symbol of Victorian high society and empirical discovery under the patronage of the British Royal Family. Across the Atlantic, the flower found another home in the United States, where it was adopted as the official floral emblem of Los Angeles, California, perfectly embodying the city's identity of glitz, success, and bold individual expression.</p>
+
+            <h3>South Africa: The Native Homeland</h3>
+            <p>As the indigenous home of the Bird of Paradise, South Africa holds the flower in special regard. The "Crane Flower" appears in traditional artwork, ceremonial decorations, and even on currency, representing the nation's natural beauty and spirit of freedom.</p>
+
+            <h3>United Kingdom: Royal Patronage</h3>
+            <p>Under the patronage of Queen Charlotte and through the work of botanists like Francis Masson and Sir Joseph Banks, the Bird of Paradise became a prized specimen in British royal gardens and a symbol of botanical exploration during the Victorian era.</p>
+
+            <h3>United States: The Los Angeles Emblem</h3>
+            <p>Adopted as the official flower of Los Angeles in 1952, the Bird of Paradise perfectly captures the city's essence—bold, vibrant, and unapologetically glamorous. It represents the California dream of success, individuality, and the pursuit of excellence.</p>
+        </div>
+
+        <div class="detailed-section" id="stories">
+            <h2>Stories and Cultural Significance</h2>
+
+            <h3>The Myth of the Legless Bird</h3>
+            <p>When European explorers first encountered the actual Birds of Paradise animals in New Guinea, native tribes traded the trade-skins with the feet removed. This led to a widespread European myth that these birds were heavenly creatures who had no legs, remaining permanently airborne and sustained solely by the hand of God. When the South African Strelitzia flower was discovered decades later, its uncanny match to those legendary, footless birds from paradise forever linked the plant to the concept of divine perfection, untamed skies, and a holy origin.</p>
+
+            <h3>The Sunbird's Secret Handshake</h3>
+            <p>Outside of its native habitat, the Bird of Paradise rarely reproduces naturally without human intervention. In the wild, however, it has an exclusive partnership with Sunbirds. The bird must physically land on the blue arrowhead petals of the flower. The exact weight of the bird acts as a mechanical key, opening up a hidden nectar chamber that spills pollen directly onto the bird's feet. As the bird hops to the next plant, it acts as a precise living vector, creating a beautiful story of biological co-dependence and natural harmony.</p>
+
+            <h3>The Legend of the Bird of Paradise</h3>
+            <p>According to a beautiful South African legend, the Bird of Paradise flower was created from the spirit of a beautiful princess who was transformed into a bird. The princess, known for her grace and beauty, was so admired that the gods granted her wish to fly free like a bird. As she took flight, her dress transformed into the magnificent orange and blue petals we see today, forever frozen in the moment of her transformation.</p>
+
+            <h3>Cultural Importance in South Africa</h3>
+            <p>In its native South Africa, the Bird of Paradise holds deep cultural significance. It appears in traditional Zulu and Xhosa artwork and is often used in ceremonial decorations. The flower is seen as a symbol of the beauty and diversity of South African flora.</p>
+
+            <h3>The Crane Flower Connection</h3>
+            <p>The flower's alternate name, "Crane Flower," comes from its resemblance to the crowned crane, a bird native to Africa. In some African cultures, the crane is considered a symbol of royalty and elegance, further enhancing the flower's regal associations.</p>
+
+            <h3>Artistic Inspiration</h3>
+            <p>The Bird of Paradise has inspired countless artists, designers, and architects. Its unique structure has influenced Art Deco designs, textile patterns, and even architectural elements. The flower's dramatic silhouette appears in everything from wallpaper designs to jewelry, cementing its place in the world of art and design.</p>
+
+            <h3>Hollywood and Pop Culture</h3>
+            <p>The flower has made numerous appearances in films and television, often used to symbolize exotic locations or tropical paradises. Its distinctive appearance makes it instantly recognizable, even to those who have never seen it in person.</p>
+
+            <h3>A Symbol of Hope</h3>
+            <p>In modern times, the Bird of Paradise has become a symbol of hope and resilience. Its ability to thrive in various conditions and return year after year serves as a reminder that beauty can persist even in challenging circumstances. This message of hope resonates with people around the world, making the flower not just a beautiful plant, but a meaningful symbol in human culture.</p>
+        </div>
+
+    </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Dylan Nature-Library. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Entry Screen Bubble Interaction
+        const entryScreen = document.getElementById('entryScreen');
+        const mainContent = document.getElementById('mainContent');
+        const devModeToggle = document.getElementById('devModeToggle');
+        const aboutModal = document.getElementById('aboutModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const navBtn = document.querySelector('.nav-btn');
+        let currentBubble = 1;
+        const totalBubbles = 7;
+
+        // Check for dev mode preference
+        const devMode = localStorage.getItem('devMode') === 'true';
+
+        // If dev mode is enabled, skip intro automatically
+        if (devMode) {
+            entryScreen.style.display = 'none';
+            mainContent.classList.add('visible');
+            devModeToggle.classList.add('active');
+            devModeToggle.textContent = 'Dev Mode ON';
+            revealSections();
+        }
+
+        // Dev mode toggle functionality
+        devModeToggle.addEventListener('click', () => {
+            const isDevMode = localStorage.getItem('devMode') === 'true';
+            localStorage.setItem('devMode', !isDevMode);
+
+            if (!isDevMode) {
+                // Enable dev mode - skip intro
+                entryScreen.style.display = 'none';
+                mainContent.classList.add('visible');
+                devModeToggle.classList.add('active');
+                devModeToggle.textContent = 'Dev Mode ON';
+                revealSections();
+            } else {
+                // Disable dev mode - show intro
+                location.reload();
+            }
+        });
+
+        // Modal functionality
+        navBtn.addEventListener('click', () => {
+            aboutModal.classList.add('active');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            aboutModal.classList.remove('active');
+        });
+
+        aboutModal.addEventListener('click', (e) => {
+            if (e.target === aboutModal) {
+                aboutModal.classList.remove('active');
+            }
+        });
+
+        function nextBubble() {
+            if (currentBubble < totalBubbles) {
+                // Exit current bubble (slide to right)
+                const currentBubbleEl = document.getElementById(`bubble${currentBubble}`);
+                currentBubbleEl.classList.remove('active');
+                currentBubbleEl.classList.add('exit');
+
+                // Update progress dots
+                updateProgressDots(currentBubble);
+
+                // Show next bubble (slide from left)
+                currentBubble++;
+                setTimeout(() => {
+                    const nextBubbleEl = document.getElementById(`bubble${currentBubble}`);
+                    nextBubbleEl.classList.remove('exit');
+                    nextBubbleEl.classList.add('active');
+                    updateProgressDots(currentBubble);
+                }, 300);
+            } else {
+                // Enter the main site
+                enterSite();
+            }
+        }
+
+        function updateProgressDots(index) {
+            const dots = document.querySelectorAll('.progress-dot');
+            dots.forEach((dot, i) => {
+                if (i < index) {
+                    dot.classList.add('completed');
+                    dot.classList.remove('active');
+                } else if (i === index - 1) {
+                    dot.classList.add('active');
+                    dot.classList.remove('completed');
+                } else {
+                    dot.classList.remove('active', 'completed');
+                }
+            });
+        }
+
+        function enterSite() {
+            entryScreen.classList.add('hidden');
+            setTimeout(() => {
+                entryScreen.style.display = 'none';
+                mainContent.classList.add('visible');
+                revealSections();
+            }, 1000);
+        }
+
+        // Spacebar/Enter event listener
+        document.addEventListener('keydown', (e) => {
+            if (!entryScreen.classList.contains('hidden')) {
+                if (e.code === 'Space' || (e.code === 'Enter' && currentBubble === totalBubbles)) {
+                    e.preventDefault();
+                    nextBubble();
+                }
+            }
+        });
+
+        // Click events for mobile users (click on bubble to continue)
+        for (let i = 1; i <= totalBubbles; i++) {
+            document.getElementById(`bubble${i}`).addEventListener('click', nextBubble);
+        }
+
+        // Scroll reveal animation
+        function revealSections() {
+            const sections = document.querySelectorAll('.detailed-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
