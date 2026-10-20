@@ -925,6 +925,104 @@
             .quick-info-item strong {
                 font-size: 1rem;
             }
+
+            /* New GUI Elements Mobile Styles */
+            .back-to-top {
+                bottom: 70px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            .quick-facts-section {
+                padding: 2rem 1rem;
+                margin: 1.5rem 0.5rem;
+            }
+
+            .quick-facts-section h2 {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .quick-facts-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .fact-card {
+                padding: 1.5rem;
+            }
+
+            .fact-icon {
+                font-size: 2.5rem;
+            }
+
+            .fact-title {
+                font-size: 1.2rem;
+            }
+
+            .fact-description {
+                font-size: 0.9rem;
+            }
+
+            .did-you-know {
+                padding: 1.5rem;
+                margin: 1.5rem 0.5rem;
+            }
+
+            .did-you-know h3 {
+                font-size: 1.5rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .did-you-know p {
+                font-size: 1rem;
+            }
+
+            .quote-card {
+                padding: 1.5rem;
+                margin: 1.5rem 0.5rem;
+            }
+
+            .quote-card blockquote {
+                font-size: 1.4rem;
+            }
+
+            .quote-card cite {
+                font-size: 0.9rem;
+            }
+
+            .plant-care-section {
+                padding: 2rem 1rem;
+                margin: 1.5rem 0.5rem;
+            }
+
+            .plant-care-section h2 {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .care-tips-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .care-tip {
+                padding: 1.2rem;
+            }
+
+            .care-tip-icon {
+                font-size: 1.8rem;
+            }
+
+            .care-tip h4 {
+                font-size: 1.2rem;
+            }
+
+            .care-tip p {
+                font-size: 0.9rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -988,6 +1086,203 @@
             .mobile-nav {
                 display: none;
             }
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff6b35, #0066cc);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+        }
+
+        /* Quick Facts Cards */
+        .quick-facts-section {
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 2rem auto;
+            max-width: 1200px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .quick-facts-section h2 {
+            text-align: center;
+            color: #1b4d3e;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .quick-facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .fact-card {
+            background: linear-gradient(135deg, #1b4d3e, #0d2b1f);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff6b35;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .fact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .fact-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #ff6b35;
+        }
+
+        .fact-description {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        /* Did You Know Section */
+        .did-you-know {
+            background: linear-gradient(135deg, #764ba2, #ff6b35);
+            color: white;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1000px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .did-you-know h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .did-you-know p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Quote Card */
+        .quote-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-left: 5px solid #ff6b35;
+        }
+
+        .quote-card blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: #1b4d3e;
+            margin-bottom: 1rem;
+        }
+
+        .quote-card cite {
+            font-size: 1rem;
+            color: #666;
+            font-style: normal;
+        }
+
+        .quote-card cite::before {
+            content: "— ";
+        }
+
+        /* Plant Care Tips */
+        .plant-care-section {
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 2rem auto;
+            max-width: 1200px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .plant-care-section h2 {
+            text-align: center;
+            color: #1b4d3e;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .care-tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .care-tip {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .care-tip:hover {
+            border-color: #ff6b35;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.2);
+        }
+
+        .care-tip-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .care-tip h4 {
+            color: #1b4d3e;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .care-tip p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
         }
 
 
@@ -1213,8 +1508,77 @@
             <p>In modern times, the Bird of Paradise has become a symbol of hope and resilience. Its ability to thrive in various conditions and return year after year serves as a reminder that beauty can persist even in challenging circumstances. This message of hope resonates with people around the world, making the flower not just a beautiful plant, but a meaningful symbol in human culture.</p>
         </div>
 
+        <!-- Quick Facts Section -->
+        <div class="quick-facts-section">
+            <h2>Quick Facts</h2>
+            <div class="quick-facts-grid">
+                <div class="fact-card">
+                    <div class="fact-icon">🌍</div>
+                    <div class="fact-title">Native Region</div>
+                    <div class="fact-description">South Africa, specifically the Eastern Cape and KwaZulu-Natal provinces</div>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">☀️</div>
+                    <div class="fact-title">Light Needs</div>
+                    <div class="fact-description">Full sun to partial shade, thrives in bright, warm conditions</div>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">💧</div>
+                    <div class="fact-title">Water Needs</div>
+                    <div class="fact-description">Moderate watering, allow soil to dry between waterings</div>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🌱</div>
+                    <div class="fact-title">Height</div>
+                    <div class="fact-description">Can grow up to 5-6 feet tall in ideal conditions</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Did You Know Section -->
+        <div class="did-you-know">
+            <h3>Did You Know?</h3>
+            <p>The Bird of Paradise flower is so named because its unique shape resembles a colorful bird in flight. It was introduced to the Royal Botanic Gardens at Kew in 1773 and has been cultivated worldwide ever since.</p>
+        </div>
+
+        <!-- Quote Card -->
+        <div class="quote-card">
+            <blockquote>"In every walk with nature, one receives far more than he seeks."</blockquote>
+            <cite>John Muir</cite>
+        </div>
+
+        <!-- Plant Care Tips Section -->
+        <div class="plant-care-section">
+            <h2>Plant Care Tips</h2>
+            <div class="care-tips-grid">
+                <div class="care-tip">
+                    <div class="care-tip-icon">🌞</div>
+                    <h4>Sunlight</h4>
+                    <p>Place in bright, indirect light. The Bird of Paradise loves sunshine but can burn in direct, intense afternoon sun.</p>
+                </div>
+                <div class="care-tip">
+                    <div class="care-tip-icon">💧</div>
+                    <h4>Watering</h4>
+                    <p>Water when the top inch of soil is dry. Reduce watering in winter when growth slows down.</p>
+                </div>
+                <div class="care-tip">
+                    <div class="care-tip-icon">🌡️</div>
+                    <h4>Temperature</h4>
+                    <p>Ideal temperature is 65-85°F (18-29°C). Protect from frost and cold drafts.</p>
+                </div>
+                <div class="care-tip">
+                    <div class="care-tip-icon">🌱</div>
+                    <h4>Soil</h4>
+                    <p>Use well-draining, rich potting soil. Add perlite or sand for better drainage.</p>
+                </div>
+            </div>
+        </div>
+
     </main>
     </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">↑</button>
 
     <footer>
         <p>&copy; 2026 Dylan Nature-Library. All rights reserved.</p>
@@ -1388,6 +1752,24 @@
                         block: 'start'
                     });
                 }
+            });
+        });
+
+        // Back to Top Button functionality
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     </script>
